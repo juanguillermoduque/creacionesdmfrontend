@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #191919;
+  background: #fcf8f3;
+  font-family: Inter, Manrope, system-ui, sans-serif;
+  font-synthesis: none;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 7%, rgba(243, 231, 227, 0.7), transparent 18rem),
+    linear-gradient(180deg, #fcf8f3 0%, #fff 46%, #fcf8f3 100%);
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(25, 25, 25, 0.8);
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.section-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.brush-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.brush-underline::after {
+  position: absolute;
+  left: 0;
+  bottom: -0.16em;
+  width: 72%;
+  height: 0.12em;
+  content: '';
+  border-radius: 999px;
+  background: #f4d665;
+  transform: rotate(-3deg);
+}
+
+.paint-swoop {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  filter: saturate(0.96);
+}
+
+.paint-swoop::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  border-radius: 48% 52% 56% 44% / 52% 42% 58% 48%;
+}
+
+.mint-swoop::before {
+  background: rgba(158, 223, 209, 0.75);
+}
+
+.yellow-swoop::before {
+  background: rgba(244, 229, 154, 0.86);
+}
+
+.blue-swoop::before {
+  background: rgba(168, 220, 232, 0.78);
+}
+
+.rose-swoop::before {
+  background: rgba(243, 231, 227, 0.9);
+}
+
+.ar-model-viewer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0.01;
+  pointer-events: none;
+}
