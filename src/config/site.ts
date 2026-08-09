@@ -20,8 +20,8 @@ export const siteConfig = {
     ],
   },
   social: {
-    instagram: '',
-    facebook: '',
+    facebook: 'https://www.facebook.com/profile.php?id=100095290476509&locale=es_LA',
+    instagram: 'https://www.instagram.com/creaionesdm/',
   },
   nav: [
     { label: 'Inicio', href: '#inicio' },
