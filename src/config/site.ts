@@ -28,7 +28,6 @@ export const siteConfig = {
     { label: 'Nosotros', href: '#nosotros' },
     { label: 'Productos', href: '#productos' },
     { label: 'Empresas', href: '#empresas' },
-    { label: 'Personaliza', href: '#personaliza' },
     { label: 'Contacto', href: '#contacto' },
   ],
   categories: [

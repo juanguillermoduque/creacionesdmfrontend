@@ -5,7 +5,6 @@ import { FinalCallToAction } from './components/FinalCallToAction'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { MugCustomizerSection } from './components/MugCustomizerSection'
 import { ProductCategories } from './components/ProductCategories'
 import { siteConfig } from './config/site'
 
@@ -27,7 +26,6 @@ function App() {
       <main>
         <Hero />
         <ProductCategories />
-        <MugCustomizerSection />
         <CustomerTypes />
         <CorporateSubscription />
         <Benefits />
