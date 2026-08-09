@@ -6,26 +6,18 @@ import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { ProductCategories } from './components/ProductCategories'
-import { siteConfig } from './config/site'
+import { Seo } from './components/Seo'
+import { SeoContent } from './components/SeoContent'
 
 function App() {
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: siteConfig.businessName,
-    email: siteConfig.email,
-    areaServed: siteConfig.serviceArea,
-    description: siteConfig.description,
-    image: `${window.location.origin}/assets/creaciones-dm-logo.png`,
-  }
-
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      <Seo />
       <Header />
       <main>
         <Hero />
         <ProductCategories />
+        <SeoContent />
         <CustomerTypes />
         <CorporateSubscription />
         <Benefits />
