@@ -2,7 +2,7 @@ export const siteConfig = {
   businessName: 'Creaciones DM',
   whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER ?? '573053261275',
   email: import.meta.env.VITE_CONTACT_EMAIL ?? 'creacionesdm530@gmail.com',
-  siteUrl: import.meta.env.VITE_SITE_URL ?? '',
+  siteUrl: import.meta.env.VITE_SITE_URL ?? 'https://creacionesdm.com',
   serviceArea: import.meta.env.VITE_SERVICE_AREA ?? 'Colombia',
   telephone: '+57 305 326 1275',
   seo: {
