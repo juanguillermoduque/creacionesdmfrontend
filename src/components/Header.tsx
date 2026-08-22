@@ -5,11 +5,17 @@ import { WhatsAppButton } from './WhatsAppButton'
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const isCatalogPage = typeof window !== 'undefined' && window.location.pathname.replace(/\/$/, '') === '/catalogo'
+
+  function resolveHref(href: string) {
+    if (!isCatalogPage || !href.startsWith('#')) return href
+    return href === '#inicio' ? '/' : `/${href}`
+  }
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-black/5 bg-ivory/88 backdrop-blur-xl">
       <div className="section-shell flex h-[82px] items-center justify-between gap-5">
-        <a href="#inicio" aria-label="Ir al inicio" className="flex items-center">
+        <a href={isCatalogPage ? '/' : '#inicio'} aria-label="Ir al inicio" className="flex items-center">
           <img
             src="/assets/creaciones-dm-logo.png"
             alt="Creaciones DM"
@@ -21,7 +27,7 @@ export function Header() {
           {siteConfig.nav.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={resolveHref(item.href)}
               className="text-sm font-bold text-ink transition hover:text-ink/60"
             >
               {item.label}
@@ -50,7 +56,7 @@ export function Header() {
             {siteConfig.nav.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={resolveHref(item.href)}
                 onClick={() => setOpen(false)}
                 className="rounded-[8px] px-3 py-3 text-base font-bold text-ink hover:bg-white"
               >

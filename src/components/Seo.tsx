@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { siteConfig } from '../config/site'
 
+type SeoPage = 'home' | 'catalog'
+
 function getSiteUrl() {
   const configuredUrl = siteConfig.siteUrl.trim()
   const runtimeUrl = typeof window !== 'undefined' ? window.location.origin : ''
@@ -34,9 +36,19 @@ function setCanonical(url: string) {
   element.href = url
 }
 
-export function Seo() {
+export function Seo({ page = 'home' }: { page?: SeoPage }) {
   const siteUrl = getSiteUrl()
-  const canonicalUrl = siteUrl ? `${siteUrl}/` : '/'
+  const rootUrl = siteUrl ? `${siteUrl}/` : '/'
+  const canonicalPath = page === 'catalog' ? '/catalogo' : '/'
+  const canonicalUrl = siteUrl ? `${siteUrl}${canonicalPath === '/' ? '/' : canonicalPath}` : canonicalPath
+  const title =
+    page === 'catalog'
+      ? 'Catálogo Creaciones DM | Mockups y diseños personalizados'
+      : siteConfig.seo.title
+  const description =
+    page === 'catalog'
+      ? 'Explora el catálogo virtual de Creaciones DM con mockups y diseños personalizados por tipo de producto y ocasión. Cotiza por WhatsApp.'
+      : siteConfig.seo.description
   const imageUrl = getAbsoluteUrl(siteConfig.seo.image)
   const sameAs = Object.values(siteConfig.social).filter(Boolean)
 
@@ -44,9 +56,9 @@ export function Seo() {
     {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      '@id': `${canonicalUrl}#business`,
+      '@id': `${rootUrl}#business`,
       name: siteConfig.businessName,
-      url: canonicalUrl,
+      url: rootUrl,
       logo: getAbsoluteUrl('/assets/creaciones-dm-logo.png'),
       image: imageUrl,
       email: siteConfig.email,
@@ -69,23 +81,23 @@ export function Seo() {
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      '@id': `${canonicalUrl}#website`,
+      '@id': `${rootUrl}#website`,
       name: siteConfig.businessName,
-      url: canonicalUrl,
+      url: rootUrl,
       inLanguage: 'es-CO',
       publisher: {
-        '@id': `${canonicalUrl}#business`,
+        '@id': `${rootUrl}#business`,
       },
     },
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'Productos personalizados de Creaciones DM',
+      name: page === 'catalog' ? 'Catálogo virtual de Creaciones DM' : 'Productos personalizados de Creaciones DM',
       itemListElement: siteConfig.categories.map((category, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         name: category.label,
-        url: `${canonicalUrl}#productos`,
+        url: page === 'catalog' ? canonicalUrl : `${rootUrl}#productos`,
       })),
     },
     {
@@ -104,23 +116,23 @@ export function Seo() {
 
   useEffect(() => {
     document.documentElement.lang = 'es-CO'
-    document.title = siteConfig.seo.title
+    document.title = title
     setCanonical(canonicalUrl)
-    setMeta('name', 'description', siteConfig.seo.description)
+    setMeta('name', 'description', description)
     setMeta('name', 'robots', 'index, follow, max-image-preview:large')
     setMeta('name', 'theme-color', '#9EDFD1')
     setMeta('property', 'og:locale', siteConfig.seo.locale)
     setMeta('property', 'og:site_name', siteConfig.businessName)
-    setMeta('property', 'og:title', siteConfig.seo.title)
-    setMeta('property', 'og:description', siteConfig.seo.description)
+    setMeta('property', 'og:title', title)
+    setMeta('property', 'og:description', description)
     setMeta('property', 'og:type', 'website')
     setMeta('property', 'og:url', canonicalUrl)
     setMeta('property', 'og:image', imageUrl)
     setMeta('name', 'twitter:card', 'summary_large_image')
-    setMeta('name', 'twitter:title', siteConfig.seo.title)
-    setMeta('name', 'twitter:description', siteConfig.seo.description)
+    setMeta('name', 'twitter:title', title)
+    setMeta('name', 'twitter:description', description)
     setMeta('name', 'twitter:image', imageUrl)
-  }, [canonicalUrl, imageUrl])
+  }, [canonicalUrl, description, imageUrl, title])
 
   return <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
 }
