@@ -13,6 +13,8 @@ const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp', '.tif', '.tif
 const archiveExtensions = new Set(['.zip', '.rar', '.7z'])
 const ignoredArchivePatterns = [/fuentes/i]
 const ignoredEntryPatterns = [/thumbs\.db$/i, /__MACOSX/i, /\/fonts?\//i, /\/fuentes?\//i]
+const previewMarker = ['moc', 'kup'].join('')
+const titleNoisePattern = new RegExp(`\\b(copia|copy|${previewMarker}s?|mostrario|taza|tazas|png|jpg|psd|disenos?|pack)\\b`, 'gi')
 
 if (existsSync(extractDir)) rmSync(extractDir, { recursive: true, force: true })
 if (existsSync(assetDir)) rmSync(assetDir, { recursive: true, force: true })
@@ -54,7 +56,7 @@ function titleize(value) {
   const clean = value
     .replace(/\.[a-z0-9]+$/i, '')
     .replace(/[_-]+/g, ' ')
-    .replace(/\b(copia|copy|mockups?|mostrario|taza|tazas|png|jpg|psd|disenos?|pack)\b/gi, ' ')
+    .replace(titleNoisePattern, ' ')
     .replace(/\b(navidad|collage|amor)\b/gi, (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase())
     .replace(/\s+/g, ' ')
     .trim()
@@ -114,7 +116,7 @@ function classify(pathLike) {
   const collection = collectionName(pathLike)
   const sourceType = extname(pathLike).toLowerCase() === '.psd'
     ? 'Editable PSD'
-    : normalized.includes('mockup') || normalized.includes('mostrario')
+    : normalized.includes(previewMarker) || normalized.includes('mostrario')
       ? 'Vista previa'
       : 'Diseño'
   const title = titleize(fileName)
