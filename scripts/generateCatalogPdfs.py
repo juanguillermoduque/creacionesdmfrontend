@@ -17,6 +17,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
 from reportlab.pdfgen import canvas
 from reportlab.platypus import (
+    Image as RLImage,
     KeepTogether,
     PageBreak,
     Paragraph,
@@ -172,6 +173,71 @@ def styled_table(headers: list[str], rows: list[list[object]], widths: list[floa
     return table
 
 
+def representative_items(items: list[dict], group_key: str, total: int, per_group: int = 2) -> list[dict]:
+    grouped: dict[str, list[dict]] = defaultdict(list)
+    for item in items:
+        grouped[item[group_key]].append(item)
+
+    for group in grouped.values():
+        group.sort(key=lambda item: (item["collection"], item["title"]))
+
+    selected: list[dict] = []
+    for group_name in sorted(grouped, key=lambda key: (-len(grouped[key]), key)):
+        selected.extend(grouped[group_name][:per_group])
+        if len(selected) >= total:
+            return selected[:total]
+
+    return selected[:total]
+
+
+def image_flowable(item: dict, max_width: float, max_height: float) -> RLImage:
+    image_path = ensure_thumb(item)
+    with Image.open(image_path) as image:
+        width, height = image.size
+    scale = min(max_width / width, max_height / height)
+    return RLImage(str(image_path), width=width * scale, height=height * scale)
+
+
+def gallery_cell(item: dict, image_width: float, image_height: float) -> list:
+    title = item["title"][:54] + ("..." if len(item["title"]) > 54 else "")
+    meta = f"{item['occasion']} - {item['collection']}"
+    return [
+        image_flowable(item, image_width, image_height),
+        Paragraph(clean_text(title), styles["CellDM"]),
+        Paragraph(clean_text(meta), styles["CellSmallDM"]),
+    ]
+
+
+def gallery_table(items: list[dict], columns: int = 3) -> Table:
+    col_width = 5.45 * cm
+    image_width = col_width - 0.45 * cm
+    image_height = 3.45 * cm
+    rows = []
+
+    for index in range(0, len(items), columns):
+        row_items = items[index : index + columns]
+        row = [gallery_cell(item, image_width, image_height) for item in row_items]
+        row.extend([""] * (columns - len(row)))
+        rows.append(row)
+
+    table = Table(rows, colWidths=[col_width] * columns)
+    table.setStyle(
+        TableStyle(
+            [
+                ("BOX", (0, 0), (-1, -1), 0.45, LINE),
+                ("INNERGRID", (0, 0), (-1, -1), 0.35, LINE),
+                ("BACKGROUND", (0, 0), (-1, -1), colors.white),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 7),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 7),
+                ("TOPPADDING", (0, 0), (-1, -1), 7),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+            ]
+        )
+    )
+    return table
+
+
 def build_master_pdf(catalog: dict):
     items = catalog["items"]
     by_product = Counter(item["productType"] for item in items).most_common()
@@ -208,6 +274,14 @@ def build_master_pdf(catalog: dict):
             styles["BodyDM"],
         )
     )
+    story.extend(
+        [
+            PageBreak(),
+            Paragraph("Muestra visual del catálogo", styles["HeadingDM"]),
+            Paragraph("Selección de diseños representativos incluidos en la vitrina completa.", styles["BodyDM"]),
+            gallery_table(representative_items(items, "occasion", total=12, per_group=2)),
+        ]
+    )
 
     path = PDF_DIR / "catalogo-maestro-creaciones-dm.pdf"
     doc_template(path, "Catálogo maestro Creaciones DM").build(story, onFirstPage=draw_doc_footer, onLaterPages=draw_doc_footer)
@@ -232,6 +306,19 @@ def build_product_pdf(catalog: dict):
     )
     story.extend([Spacer(1, 0.5 * cm), Paragraph("Diseños actuales por producto", styles["HeadingDM"])])
     story.append(styled_table(["Producto", "Diseños"], counts, [10 * cm, 3 * cm]))
+    items_by_product: dict[str, list[dict]] = defaultdict(list)
+    for item in catalog["items"]:
+        items_by_product[item["productType"]].append(item)
+
+    for product, product_items in sorted(items_by_product.items(), key=lambda entry: (-len(entry[1]), entry[0])):
+        story.extend(
+            [
+                PageBreak(),
+                Paragraph(product, styles["HeadingDM"]),
+                Paragraph(f"{len(product_items)} diseños disponibles. Muestra visual para cotización.", styles["BodyDM"]),
+                gallery_table(sorted(product_items, key=lambda item: (item["occasion"], item["collection"], item["title"]))[:12]),
+            ]
+        )
     path = PDF_DIR / "catalogo-por-producto-creaciones-dm.pdf"
     doc_template(path, "Catálogo por producto Creaciones DM").build(story, onFirstPage=draw_doc_footer, onLaterPages=draw_doc_footer)
     return path
@@ -255,6 +342,19 @@ def build_theme_pdf(catalog: dict):
     )
     story.extend([Spacer(1, 0.5 * cm), Paragraph("Colecciones base", styles["HeadingDM"])])
     story.append(styled_table(["Colección", "Diseños"], by_collection, [10 * cm, 3 * cm]))
+    items_by_occasion: dict[str, list[dict]] = defaultdict(list)
+    for item in catalog["items"]:
+        items_by_occasion[item["occasion"]].append(item)
+
+    for occasion, occasion_items in sorted(items_by_occasion.items(), key=lambda entry: (-len(entry[1]), entry[0])):
+        story.extend(
+            [
+                PageBreak(),
+                Paragraph(occasion, styles["HeadingDM"]),
+                Paragraph(f"{len(occasion_items)} diseños disponibles. Muestra visual por temática.", styles["BodyDM"]),
+                gallery_table(sorted(occasion_items, key=lambda item: (item["collection"], item["title"]))[:12]),
+            ]
+        )
     path = PDF_DIR / "catalogo-por-tematica-creaciones-dm.pdf"
     doc_template(path, "Catálogo por temática Creaciones DM").build(story, onFirstPage=draw_doc_footer, onLaterPages=draw_doc_footer)
     return path
