@@ -1,6 +1,7 @@
 import { Filter, MessageCircle, Search, ShoppingBag, Sparkles, X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { openWhatsApp } from '../lib/whatsapp'
+import { CatalogSeoContent } from './CatalogSeoContent'
 
 const initialVisibleCount = 36
 const visibleCountStep = 36
@@ -38,6 +39,12 @@ function buildMessage(item: StoreCatalogItem) {
 
 const primaryProductType = 'Mugs y tazas'
 
+function getInitialSearchParam(key: string, fallback: string) {
+  if (typeof window === 'undefined') return fallback
+
+  return new URLSearchParams(window.location.search).get(key) ?? fallback
+}
+
 export function VirtualStore() {
   const [catalogData, setCatalogData] = useState<StoreCatalogData>({
     items: [],
@@ -46,10 +53,10 @@ export function VirtualStore() {
     collections: [],
   })
   const [loading, setLoading] = useState(true)
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState(() => getInitialSearchParam('buscar', ''))
   const [productType, setProductType] = useState(primaryProductType)
-  const [occasion, setOccasion] = useState('Todas')
-  const [collection, setCollection] = useState('Todas')
+  const [occasion, setOccasion] = useState(() => getInitialSearchParam('ocasion', 'Todas'))
+  const [collection, setCollection] = useState(() => getInitialSearchParam('coleccion', 'Todas'))
   const [visibleCount, setVisibleCount] = useState(initialVisibleCount)
 
   useEffect(() => {
@@ -281,6 +288,8 @@ export function VirtualStore() {
             </button>
           </div>
         ) : null}
+
+        <CatalogSeoContent />
       </div>
     </section>
   )

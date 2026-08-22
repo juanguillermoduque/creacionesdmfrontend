@@ -1,0 +1,448 @@
+export const catalogSeo = {
+  "generatedAt": "2026-08-22T20:14:26.622Z",
+  "totalDesigns": 1352,
+  "headline": "Mugs personalizados por profesión, ocasión y frase",
+  "description": "Explora diseños para mugs y tazas personalizados: aquí toma, profesiones, Navidad, amor, abuelos, familia, frases, nombres y fotos.",
+  "keywords": [
+    "aquí toma",
+    "profesiones",
+    "ingeniero",
+    "chef",
+    "policía",
+    "profesor",
+    "maestro",
+    "mecánico",
+    "fotógrafo",
+    "técnico",
+    "músico",
+    "enfermería",
+    "abogada",
+    "administrador",
+    "dentista",
+    "bombero",
+    "taxista",
+    "barbero",
+    "militar",
+    "contador",
+    "veterinario",
+    "doctor",
+    "enfermera",
+    "secretaria",
+    "manicurista",
+    "abogado",
+    "sistemas",
+    "ingeniera",
+    "odontólogo",
+    "repostero",
+    "nutricionista",
+    "estudiante",
+    "navidad",
+    "amor",
+    "pareja",
+    "abuelos",
+    "familia",
+    "collage",
+    "fotos",
+    "nombres",
+    "frases",
+    "especiales",
+    "tazones",
+    "ilustrados",
+    "ilustradas",
+    "aquí",
+    "variados",
+    "maestra",
+    "industrial",
+    "enfermero",
+    "carabineros",
+    "electrónico",
+    "conductor",
+    "social",
+    "terapeuta",
+    "lenguaje",
+    "civil",
+    "quimico",
+    "scout",
+    "albañil",
+    "esposo",
+    "cantante",
+    "ambiental",
+    "mamá",
+    "periodista",
+    "futbolista",
+    "cientifico",
+    "jardinero",
+    "recursos",
+    "informatico",
+    "pintor",
+    "novio",
+    "novia",
+    "esposa",
+    "contadora",
+    "estilista",
+    "disenador",
+    "economista",
+    "administradora",
+    "azafata"
+  ],
+  "phrases": [
+    "mugs aquí toma",
+    "mugs aquí toma para profesiones",
+    "mug aquí toma ingeniero",
+    "mug aquí toma chef",
+    "mug aquí toma policía",
+    "mug personalizado profesor",
+    "mug personalizado maestro",
+    "mug personalizado enfermera",
+    "mug personalizado abogado",
+    "mug personalizado dentista",
+    "mug personalizado bombero",
+    "mug personalizado Navidad",
+    "tazas de Navidad personalizadas",
+    "mugs de amor y pareja",
+    "mugs para abuelos",
+    "mugs con fotos",
+    "mugs con nombres",
+    "mugs con frases",
+    "mugs para familia",
+    "mugs por profesión"
+  ],
+  "featuredSearches": [
+    {
+      "label": "mugs aquí toma",
+      "url": "/catalogo?buscar=mugs%20aqu%C3%AD%20toma"
+    },
+    {
+      "label": "mugs aquí toma para profesiones",
+      "url": "/catalogo?buscar=mugs%20aqu%C3%AD%20toma%20para%20profesiones"
+    },
+    {
+      "label": "mug aquí toma ingeniero",
+      "url": "/catalogo?buscar=mug%20aqu%C3%AD%20toma%20ingeniero"
+    },
+    {
+      "label": "mug aquí toma chef",
+      "url": "/catalogo?buscar=mug%20aqu%C3%AD%20toma%20chef"
+    },
+    {
+      "label": "mug aquí toma policía",
+      "url": "/catalogo?buscar=mug%20aqu%C3%AD%20toma%20polic%C3%ADa"
+    },
+    {
+      "label": "mug personalizado profesor",
+      "url": "/catalogo?buscar=mug%20personalizado%20profesor"
+    },
+    {
+      "label": "mug personalizado maestro",
+      "url": "/catalogo?buscar=mug%20personalizado%20maestro"
+    },
+    {
+      "label": "mug personalizado enfermera",
+      "url": "/catalogo?buscar=mug%20personalizado%20enfermera"
+    },
+    {
+      "label": "mug personalizado abogado",
+      "url": "/catalogo?buscar=mug%20personalizado%20abogado"
+    },
+    {
+      "label": "mug personalizado dentista",
+      "url": "/catalogo?buscar=mug%20personalizado%20dentista"
+    },
+    {
+      "label": "mug personalizado bombero",
+      "url": "/catalogo?buscar=mug%20personalizado%20bombero"
+    },
+    {
+      "label": "mug personalizado Navidad",
+      "url": "/catalogo?buscar=mug%20personalizado%20Navidad"
+    },
+    {
+      "label": "tazas de Navidad personalizadas",
+      "url": "/catalogo?buscar=tazas%20de%20Navidad%20personalizadas"
+    },
+    {
+      "label": "mugs de amor y pareja",
+      "url": "/catalogo?buscar=mugs%20de%20amor%20y%20pareja"
+    },
+    {
+      "label": "mugs para abuelos",
+      "url": "/catalogo?buscar=mugs%20para%20abuelos"
+    },
+    {
+      "label": "mugs con fotos",
+      "url": "/catalogo?buscar=mugs%20con%20fotos"
+    },
+    {
+      "label": "mugs con nombres",
+      "url": "/catalogo?buscar=mugs%20con%20nombres"
+    },
+    {
+      "label": "mugs con frases",
+      "url": "/catalogo?buscar=mugs%20con%20frases"
+    },
+    {
+      "label": "mugs para familia",
+      "url": "/catalogo?buscar=mugs%20para%20familia"
+    },
+    {
+      "label": "mugs por profesión",
+      "url": "/catalogo?buscar=mugs%20por%20profesi%C3%B3n"
+    },
+    {
+      "label": "mug aquí toma",
+      "url": "/catalogo?buscar=mug%20aqu%C3%AD%20toma"
+    },
+    {
+      "label": "mug profesiones",
+      "url": "/catalogo?buscar=mug%20profesiones"
+    },
+    {
+      "label": "mug ingeniero",
+      "url": "/catalogo?buscar=mug%20ingeniero"
+    },
+    {
+      "label": "mug chef",
+      "url": "/catalogo?buscar=mug%20chef"
+    },
+    {
+      "label": "mug policía",
+      "url": "/catalogo?buscar=mug%20polic%C3%ADa"
+    },
+    {
+      "label": "mug profesor",
+      "url": "/catalogo?buscar=mug%20profesor"
+    },
+    {
+      "label": "mug maestro",
+      "url": "/catalogo?buscar=mug%20maestro"
+    },
+    {
+      "label": "mug mecánico",
+      "url": "/catalogo?buscar=mug%20mec%C3%A1nico"
+    },
+    {
+      "label": "mug fotógrafo",
+      "url": "/catalogo?buscar=mug%20fot%C3%B3grafo"
+    },
+    {
+      "label": "mug técnico",
+      "url": "/catalogo?buscar=mug%20t%C3%A9cnico"
+    },
+    {
+      "label": "mug músico",
+      "url": "/catalogo?buscar=mug%20m%C3%BAsico"
+    },
+    {
+      "label": "mug enfermería",
+      "url": "/catalogo?buscar=mug%20enfermer%C3%ADa"
+    },
+    {
+      "label": "mug abogada",
+      "url": "/catalogo?buscar=mug%20abogada"
+    },
+    {
+      "label": "mug administrador",
+      "url": "/catalogo?buscar=mug%20administrador"
+    },
+    {
+      "label": "mug dentista",
+      "url": "/catalogo?buscar=mug%20dentista"
+    },
+    {
+      "label": "mug bombero",
+      "url": "/catalogo?buscar=mug%20bombero"
+    },
+    {
+      "label": "mug taxista",
+      "url": "/catalogo?buscar=mug%20taxista"
+    },
+    {
+      "label": "mug barbero",
+      "url": "/catalogo?buscar=mug%20barbero"
+    },
+    {
+      "label": "mug militar",
+      "url": "/catalogo?buscar=mug%20militar"
+    },
+    {
+      "label": "mug contador",
+      "url": "/catalogo?buscar=mug%20contador"
+    },
+    {
+      "label": "mug veterinario",
+      "url": "/catalogo?buscar=mug%20veterinario"
+    },
+    {
+      "label": "mug doctor",
+      "url": "/catalogo?buscar=mug%20doctor"
+    },
+    {
+      "label": "mug enfermera",
+      "url": "/catalogo?buscar=mug%20enfermera"
+    },
+    {
+      "label": "mug secretaria",
+      "url": "/catalogo?buscar=mug%20secretaria"
+    },
+    {
+      "label": "mug manicurista",
+      "url": "/catalogo?buscar=mug%20manicurista"
+    },
+    {
+      "label": "mug abogado",
+      "url": "/catalogo?buscar=mug%20abogado"
+    },
+    {
+      "label": "mug sistemas",
+      "url": "/catalogo?buscar=mug%20sistemas"
+    },
+    {
+      "label": "mug ingeniera",
+      "url": "/catalogo?buscar=mug%20ingeniera"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Mugs aquí toma y profesiones",
+      "description": "Diseños para regalar a ingenieros, chefs, policías, profesores, médicos, abogados, enfermeras, mecánicos, bomberos y muchas más profesiones.",
+      "terms": [
+        "aquí toma",
+        "ingeniero",
+        "chef",
+        "policía",
+        "profesor",
+        "maestro",
+        "mecánico",
+        "enfermera",
+        "abogado",
+        "dentista",
+        "bombero",
+        "contador"
+      ]
+    },
+    {
+      "title": "Mugs personalizados por ocasión",
+      "description": "Opciones para Navidad, amor y pareja, familia, abuelos, aniversarios, fechas especiales y detalles personalizados con fotos o nombres.",
+      "terms": [
+        "Navidad",
+        "amor",
+        "pareja",
+        "familia",
+        "abuelos",
+        "collage",
+        "fotos",
+        "nombres",
+        "frases"
+      ]
+    },
+    {
+      "title": "Diseños listos para cotizar por WhatsApp",
+      "description": "Cada pieza del catálogo puede adaptarse con nombres, frases, colores, fotos o datos de la persona que recibe el regalo.",
+      "terms": [
+        "regalos personalizados",
+        "mugs con fotos",
+        "mugs con nombres",
+        "mugs con frases",
+        "detalles personalizados"
+      ]
+    }
+  ],
+  "sitemapSearches": [
+    {
+      "label": "mugs aquí toma",
+      "url": "/catalogo?buscar=mugs%20aqu%C3%AD%20toma"
+    },
+    {
+      "label": "mugs aquí toma para profesiones",
+      "url": "/catalogo?buscar=mugs%20aqu%C3%AD%20toma%20para%20profesiones"
+    },
+    {
+      "label": "mug aquí toma ingeniero",
+      "url": "/catalogo?buscar=mug%20aqu%C3%AD%20toma%20ingeniero"
+    },
+    {
+      "label": "mug aquí toma chef",
+      "url": "/catalogo?buscar=mug%20aqu%C3%AD%20toma%20chef"
+    },
+    {
+      "label": "mug aquí toma policía",
+      "url": "/catalogo?buscar=mug%20aqu%C3%AD%20toma%20polic%C3%ADa"
+    },
+    {
+      "label": "mug personalizado profesor",
+      "url": "/catalogo?buscar=mug%20personalizado%20profesor"
+    },
+    {
+      "label": "mug personalizado maestro",
+      "url": "/catalogo?buscar=mug%20personalizado%20maestro"
+    },
+    {
+      "label": "mug personalizado enfermera",
+      "url": "/catalogo?buscar=mug%20personalizado%20enfermera"
+    },
+    {
+      "label": "mug personalizado abogado",
+      "url": "/catalogo?buscar=mug%20personalizado%20abogado"
+    },
+    {
+      "label": "mug personalizado dentista",
+      "url": "/catalogo?buscar=mug%20personalizado%20dentista"
+    },
+    {
+      "label": "mug personalizado bombero",
+      "url": "/catalogo?buscar=mug%20personalizado%20bombero"
+    },
+    {
+      "label": "mug personalizado Navidad",
+      "url": "/catalogo?buscar=mug%20personalizado%20Navidad"
+    },
+    {
+      "label": "tazas de Navidad personalizadas",
+      "url": "/catalogo?buscar=tazas%20de%20Navidad%20personalizadas"
+    },
+    {
+      "label": "mugs de amor y pareja",
+      "url": "/catalogo?buscar=mugs%20de%20amor%20y%20pareja"
+    },
+    {
+      "label": "mugs para abuelos",
+      "url": "/catalogo?buscar=mugs%20para%20abuelos"
+    },
+    {
+      "label": "mugs con fotos",
+      "url": "/catalogo?buscar=mugs%20con%20fotos"
+    },
+    {
+      "label": "mugs con nombres",
+      "url": "/catalogo?buscar=mugs%20con%20nombres"
+    },
+    {
+      "label": "mugs con frases",
+      "url": "/catalogo?buscar=mugs%20con%20frases"
+    },
+    {
+      "label": "mugs para familia",
+      "url": "/catalogo?buscar=mugs%20para%20familia"
+    },
+    {
+      "label": "mugs por profesión",
+      "url": "/catalogo?buscar=mugs%20por%20profesi%C3%B3n"
+    },
+    {
+      "label": "mug aquí toma",
+      "url": "/catalogo?buscar=mug%20aqu%C3%AD%20toma"
+    },
+    {
+      "label": "mug profesiones",
+      "url": "/catalogo?buscar=mug%20profesiones"
+    },
+    {
+      "label": "mug ingeniero",
+      "url": "/catalogo?buscar=mug%20ingeniero"
+    },
+    {
+      "label": "mug chef",
+      "url": "/catalogo?buscar=mug%20chef"
+    }
+  ]
+} as const

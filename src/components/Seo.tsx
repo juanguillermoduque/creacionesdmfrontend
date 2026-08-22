@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { siteConfig } from '../config/site'
+import { catalogSeo } from '../generated/catalogSeo'
 
 type SeoPage = 'home' | 'catalog'
 
@@ -43,14 +44,30 @@ export function Seo({ page = 'home' }: { page?: SeoPage }) {
   const canonicalUrl = siteUrl ? `${siteUrl}${canonicalPath === '/' ? '/' : canonicalPath}` : canonicalPath
   const title =
     page === 'catalog'
-      ? 'Catálogo Creaciones DM | Diseños personalizados'
+      ? 'Mugs aquí toma y tazas personalizadas | Creaciones DM'
       : siteConfig.seo.title
   const description =
     page === 'catalog'
-      ? 'Explora el catálogo visual de Creaciones DM con diseños personalizados por tipo de producto y ocasión. Cotiza por WhatsApp.'
+      ? `Explora ${catalogSeo.totalDesigns} diseños para mugs y tazas personalizadas: aquí toma, profesiones, Navidad, amor, abuelos, frases, fotos y nombres. Cotiza por WhatsApp.`
       : siteConfig.seo.description
   const imageUrl = getAbsoluteUrl(siteConfig.seo.image)
   const sameAs = Object.values(siteConfig.social).filter(Boolean)
+  const keywords =
+    page === 'catalog'
+      ? [
+          'mugs personalizados',
+          'tazas personalizadas',
+          'mugs aquí toma',
+          'regalos personalizados Colombia',
+          ...catalogSeo.keywords,
+        ].join(', ')
+      : [
+          'sublimación Colombia',
+          'regalos personalizados',
+          'mugs personalizados',
+          'camisetas personalizadas',
+          'Creaciones DM',
+        ].join(', ')
 
   const structuredData = [
     {
@@ -88,18 +105,59 @@ export function Seo({ page = 'home' }: { page?: SeoPage }) {
       publisher: {
         '@id': `${rootUrl}#business`,
       },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${rootUrl}catalogo?buscar={search_term_string}`,
+        'query-input': 'required name=search_term_string',
+      },
     },
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
       name: page === 'catalog' ? 'Catálogo virtual de Creaciones DM' : 'Productos personalizados de Creaciones DM',
-      itemListElement: siteConfig.categories.map((category, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: category.label,
-        url: page === 'catalog' ? canonicalUrl : `${rootUrl}#productos`,
-      })),
+      itemListElement:
+        page === 'catalog'
+          ? catalogSeo.featuredSearches.slice(0, 24).map((search, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: search.label,
+              url: getAbsoluteUrl(search.url),
+            }))
+          : siteConfig.categories.map((category, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: category.label,
+              url: `${rootUrl}#productos`,
+            })),
     },
+    page === 'catalog'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          '@id': `${canonicalUrl}#catalog`,
+          name: title,
+          url: canonicalUrl,
+          inLanguage: 'es-CO',
+          description,
+          isPartOf: {
+            '@id': `${rootUrl}#website`,
+          },
+          about: catalogSeo.keywords.slice(0, 35).map((keyword) => ({
+            '@type': 'Thing',
+            name: keyword,
+          })),
+          mainEntity: {
+            '@type': 'ItemList',
+            numberOfItems: catalogSeo.totalDesigns,
+            itemListElement: catalogSeo.phrases.slice(0, 20).map((phrase, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: phrase,
+              url: getAbsoluteUrl(`/catalogo?buscar=${encodeURIComponent(phrase)}`),
+            })),
+          },
+        }
+      : null,
     {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
@@ -112,13 +170,14 @@ export function Seo({ page = 'home' }: { page?: SeoPage }) {
         },
       })),
     },
-  ]
+  ].filter(Boolean)
 
   useEffect(() => {
     document.documentElement.lang = 'es-CO'
     document.title = title
     setCanonical(canonicalUrl)
     setMeta('name', 'description', description)
+    setMeta('name', 'keywords', keywords)
     setMeta('name', 'robots', 'index, follow, max-image-preview:large')
     setMeta('name', 'theme-color', '#9EDFD1')
     setMeta('property', 'og:locale', siteConfig.seo.locale)
@@ -132,7 +191,7 @@ export function Seo({ page = 'home' }: { page?: SeoPage }) {
     setMeta('name', 'twitter:title', title)
     setMeta('name', 'twitter:description', description)
     setMeta('name', 'twitter:image', imageUrl)
-  }, [canonicalUrl, description, imageUrl, title])
+  }, [canonicalUrl, description, imageUrl, keywords, title])
 
   return <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
 }
