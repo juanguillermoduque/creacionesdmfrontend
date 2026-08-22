@@ -17,5 +17,4 @@ Este documento organiza todos los productos que Creaciones DM puede ofrecer. El 
 
 | Tipo en tienda virtual | Cantidad |
 | --- | --- |
-| Mugs y tazas | 1265 |
-| Diseños para sublimación | 87 |
+| Mugs y tazas | 1352 |

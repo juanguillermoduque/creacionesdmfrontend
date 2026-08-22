@@ -112,7 +112,7 @@ function classify(pathLike) {
     occasion = 'Ilustrados'
   }
 
-  const productType = normalized.includes('taza') || normalized.includes('mug') ? 'Mugs y tazas' : 'Diseños para sublimación'
+  const productType = 'Mugs y tazas'
   const collection = collectionName(pathLike)
   const sourceType = extname(pathLike).toLowerCase() === '.psd'
     ? 'Editable PSD'

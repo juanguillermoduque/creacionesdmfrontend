@@ -36,6 +36,8 @@ function buildMessage(item: StoreCatalogItem) {
   return `Hola, Creaciones DM. Quiero cotizar este diseño del catálogo: ${item.title}. Tipo: ${item.productType}. Ocasión: ${item.occasion}.`
 }
 
+const primaryProductType = 'Mugs y tazas'
+
 export function VirtualStore() {
   const [catalogData, setCatalogData] = useState<StoreCatalogData>({
     items: [],
@@ -45,7 +47,7 @@ export function VirtualStore() {
   })
   const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState('')
-  const [productType, setProductType] = useState('Todos')
+  const [productType, setProductType] = useState(primaryProductType)
   const [occasion, setOccasion] = useState('Todas')
   const [collection, setCollection] = useState('Todas')
   const [visibleCount, setVisibleCount] = useState(initialVisibleCount)
@@ -86,11 +88,11 @@ export function VirtualStore() {
   }, [catalogData.items, collection, occasion, productType, query])
 
   const visibleItems = filteredItems.slice(0, visibleCount)
-  const hasFilters = query || productType !== 'Todos' || occasion !== 'Todas' || collection !== 'Todas'
+  const hasFilters = query || occasion !== 'Todas' || collection !== 'Todas'
 
   function resetFilters() {
     setQuery('')
-    setProductType('Todos')
+    setProductType(primaryProductType)
     setOccasion('Todas')
     setCollection('Todas')
     setVisibleCount(initialVisibleCount)
@@ -131,7 +133,7 @@ export function VirtualStore() {
           </div>
           <p className="max-w-2xl text-base leading-7 text-ink/74">
             Organizamos el material de la carpeta contenido en una vitrina scrolleable. Filtra por
-            tipo de producto, ocasión o palabra clave y cotiza por WhatsApp el diseño que te guste.
+            ocasión, colección o palabra clave y cotiza por WhatsApp el diseño que te guste.
           </p>
         </div>
 
@@ -157,8 +159,7 @@ export function VirtualStore() {
               onChange={(event) => updateProductType(event.target.value)}
               className="h-11 w-full rounded-[8px] border border-black/10 bg-white px-3 text-sm font-extrabold text-ink outline-none transition focus:border-mint"
             >
-              <option>Todos</option>
-              {catalogData.productTypes.map((type) => (
+              {(catalogData.productTypes.length ? catalogData.productTypes : [primaryProductType]).map((type) => (
                 <option key={type}>{type}</option>
               ))}
             </select>

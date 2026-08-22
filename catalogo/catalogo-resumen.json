@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-22T02:52:47.051Z",
+  "generatedAt": "2026-08-22T03:52:31.534Z",
   "totals": {
     "productOfferings": 8,
     "storeItems": 1352,
-    "productTypes": 2,
+    "productTypes": 1,
     "occasions": 6,
     "collections": 8
   },
@@ -110,8 +110,7 @@
   ],
   "storeCatalog": {
     "byProductType": {
-      "Mugs y tazas": 1265,
-      "Diseños para sublimación": 87
+      "Mugs y tazas": 1352
     },
     "byOccasion": {
       "Profesiones": 993,

@@ -6,7 +6,7 @@ Resumen operativo para organizar los productos y diseños disponibles.
 
 - Productos y servicios ofertables: 8
 - Diseños optimizados para tienda virtual: 1352
-- Tipos de producto con diseños actuales: 2
+- Tipos de producto con diseños actuales: 1
 - Temáticas detectadas: 6
 - Colecciones base detectadas: 8
 
