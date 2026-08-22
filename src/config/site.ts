@@ -35,7 +35,7 @@ export const siteConfig = {
   nav: [
     { label: 'Inicio', href: '#inicio' },
     { label: 'Nosotros', href: '#nosotros' },
-    { label: 'Productos', href: '#productos' },
+    { label: 'Catálogo', href: '#productos' },
     { label: 'Empresas', href: '#empresas' },
     { label: 'Contacto', href: '#contacto' },
   ],
