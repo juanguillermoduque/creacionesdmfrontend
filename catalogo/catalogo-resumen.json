@@ -1,0 +1,135 @@
+{
+  "generatedAt": "2026-08-22T02:23:51.022Z",
+  "totals": {
+    "productOfferings": 8,
+    "storeItems": 1153,
+    "productTypes": 2,
+    "occasions": 6,
+    "collections": 8
+  },
+  "productOfferings": [
+    {
+      "product": "Mugs y tazas",
+      "status": "Con mockups disponibles",
+      "description": "Producto principal del catálogo actual. Ideal para regalos personales, profesiones, fechas especiales, Navidad, amor, familia y campañas.",
+      "personalization": "Fotos, nombres, frases, logos, colores, ilustraciones y diseños por profesión.",
+      "suggestedOccasions": [
+        "Profesiones",
+        "Navidad",
+        "Amor y pareja",
+        "Familia",
+        "Ilustrados",
+        "Diseños variados"
+      ]
+    },
+    {
+      "product": "Camisetas",
+      "status": "Oferta disponible",
+      "description": "Prendas personalizadas para marcas, equipos, eventos, emprendimientos, regalos y campañas.",
+      "personalization": "Logos, frases, nombres, diseños gráficos, estampados y diseños corporativos.",
+      "suggestedOccasions": [
+        "Empresas",
+        "Eventos",
+        "Campañas",
+        "Regalos personales",
+        "Uniformes"
+      ]
+    },
+    {
+      "product": "Botilitos y termos",
+      "status": "Oferta disponible",
+      "description": "Productos funcionales para empresas, detalles promocionales, colegios, equipos y eventos.",
+      "personalization": "Logos, nombres, frases cortas, colores de marca e ilustraciones.",
+      "suggestedOccasions": [
+        "Empresas",
+        "Eventos",
+        "Campañas",
+        "Regalos útiles"
+      ]
+    },
+    {
+      "product": "Bolsas y tote bags",
+      "status": "Oferta disponible",
+      "description": "Bolsas personalizadas para marcas, eventos, detalles sostenibles, ferias y regalos.",
+      "personalization": "Logos, frases, diseños minimalistas, ilustraciones y mensajes de campaña.",
+      "suggestedOccasions": [
+        "Empresas",
+        "Ferias",
+        "Eventos",
+        "Regalos promocionales"
+      ]
+    },
+    {
+      "product": "Gorras",
+      "status": "Oferta disponible",
+      "description": "Accesorios personalizados para equipos, marcas, campañas, eventos y dotación casual.",
+      "personalization": "Logo, nombre, frase, iniciales o diseño de marca.",
+      "suggestedOccasions": [
+        "Empresas",
+        "Equipos",
+        "Eventos",
+        "Campañas"
+      ]
+    },
+    {
+      "product": "Cojines",
+      "status": "Oferta disponible",
+      "description": "Regalos personalizados para familia, pareja, cumpleaños, fechas especiales y decoración.",
+      "personalization": "Fotos, nombres, frases, fechas, collage y diseños temáticos.",
+      "suggestedOccasions": [
+        "Amor y pareja",
+        "Familia",
+        "Cumpleaños",
+        "Aniversarios"
+      ]
+    },
+    {
+      "product": "Rompecabezas",
+      "status": "Oferta disponible",
+      "description": "Producto de regalo con valor sentimental para fotos familiares, pareja, niños y fechas especiales.",
+      "personalization": "Fotos, mensajes, nombres y diseños por ocasión.",
+      "suggestedOccasions": [
+        "Familia",
+        "Amor y pareja",
+        "Niños",
+        "Fechas especiales"
+      ]
+    },
+    {
+      "product": "Regalos corporativos mensuales",
+      "status": "Servicio disponible",
+      "description": "Modalidad de suscripción para empresas que quieren consentir empleados con regalos personalizados mes a mes.",
+      "personalization": "Selección mensual por cantidad de colaboradores, ocasión, marca y objetivo interno.",
+      "suggestedOccasions": [
+        "Empresas",
+        "Bienestar laboral",
+        "Fechas especiales",
+        "Reconocimientos"
+      ]
+    }
+  ],
+  "storeCatalog": {
+    "byProductType": {
+      "Mugs y tazas": 1066,
+      "Diseños para sublimación": 87
+    },
+    "byOccasion": {
+      "Profesiones": 809,
+      "Navidad": 186,
+      "Amor y pareja": 45,
+      "Ilustrados": 41,
+      "Diseños variados": 38,
+      "Familia": 34
+    },
+    "byCollection": {
+      "Tazas profesiones": 444,
+      "Packs profesiones especiales": 437,
+      "Pack tazones Navidad #4": 76,
+      "Tres tazas Navidad": 47,
+      "Pack amor collage": 45,
+      "Tazas ilustradas": 41,
+      "Colección abuelos": 33,
+      "Pack tazones Navidad #5": 30
+    }
+  }
+}
