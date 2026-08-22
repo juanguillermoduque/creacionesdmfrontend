@@ -8,7 +8,7 @@ const outputDir = resolve(rootDir, 'catalogo')
 const productOfferings = [
   {
     product: 'Mugs y tazas',
-    status: 'Con mockups disponibles',
+    status: 'Con diseños disponibles',
     description: 'Producto principal del catálogo actual. Ideal para regalos personales, profesiones, fechas especiales, Navidad, amor, familia y campañas.',
     personalization: 'Fotos, nombres, frases, logos, colores, ilustraciones y diseños por profesión.',
     suggestedOccasions: ['Profesiones', 'Navidad', 'Amor y pareja', 'Familia', 'Ilustrados', 'Diseños variados'],
@@ -140,14 +140,14 @@ const storeRows = [
 
 const productMarkdown = `# Catálogo por producto
 
-Este documento organiza todos los productos que Creaciones DM puede ofrecer. El material con mockups clasificados actualmente está concentrado principalmente en mugs y tazas; los demás productos quedan definidos como líneas comerciales disponibles para cotización y para ampliar con nuevos mockups.
+Este documento organiza todos los productos que Creaciones DM puede ofrecer. El material visual clasificado actualmente está concentrado principalmente en mugs y tazas; los demás productos quedan definidos como líneas comerciales disponibles para cotización y para ampliar con nuevos diseños.
 
 ${markdownTable(
   ['Producto', 'Estado', 'Descripción', 'Personalización', 'Ocasiones sugeridas'],
   offerRows,
 )}
 
-## Conteo de mockups actuales por tipo de producto
+## Conteo de diseños actuales por tipo de producto
 
 ${markdownTable(['Tipo en tienda virtual', 'Cantidad'], byProductType)}
 `
@@ -170,8 +170,8 @@ Resumen operativo para organizar los productos y diseños disponibles.
 ## Resumen rápido
 
 - Productos y servicios ofertables: ${productOfferings.length}
-- Diseños/mockups optimizados para tienda virtual: ${items.length}
-- Tipos de producto con mockups actuales: ${byProductType.length}
+- Diseños optimizados para tienda virtual: ${items.length}
+- Tipos de producto con diseños actuales: ${byProductType.length}
 - Temáticas detectadas: ${byOccasion.length}
 - Colecciones base detectadas: ${byCollection.length}
 
@@ -181,7 +181,7 @@ Resumen operativo para organizar los productos y diseños disponibles.
 - \`catalogo-por-tematica.md\`: clasificación por ocasión y temática.
 - \`catalogo-productos.csv\`: versión tabular de productos ofertables.
 - \`catalogo-tematicas.csv\`: versión tabular por temática.
-- \`catalogo-tienda-virtual.csv\`: todos los diseños/mockups de la tienda virtual.
+- \`catalogo-tienda-virtual.csv\`: todos los diseños de la tienda virtual.
 - \`catalogo-resumen.json\`: resumen estructurado para automatizaciones o futuras integraciones.
 
 ## Recomendación comercial

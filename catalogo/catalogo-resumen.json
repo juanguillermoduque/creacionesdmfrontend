@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T02:41:26.190Z",
+  "generatedAt": "2026-08-22T02:52:47.051Z",
   "totals": {
     "productOfferings": 8,
     "storeItems": 1352,
@@ -10,7 +10,7 @@
   "productOfferings": [
     {
       "product": "Mugs y tazas",
-      "status": "Con mockups disponibles",
+      "status": "Con diseños disponibles",
       "description": "Producto principal del catálogo actual. Ideal para regalos personales, profesiones, fechas especiales, Navidad, amor, familia y campañas.",
       "personalization": "Fotos, nombres, frases, logos, colores, ilustraciones y diseños por profesión.",
       "suggestedOccasions": [

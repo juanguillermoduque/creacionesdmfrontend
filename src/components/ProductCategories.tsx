@@ -9,7 +9,7 @@ const previewCategories = [
   },
   {
     title: 'Navidad',
-    body: 'Mockups de temporada con fotos y frases.',
+    body: 'Diseños de temporada con fotos y frases.',
     image: '/assets/catalog/tazas-navidad.jpg',
     icon: CalendarDays,
   },
@@ -32,7 +32,7 @@ export function ProductCategories() {
               Catálogo
             </p>
             <h2 id="catalog-preview-title" className="mt-3 font-display text-[36px] font-black leading-[1.05] text-ink md:text-[52px]">
-              Una tienda virtual para explorar todos los mockups.
+              Una tienda virtual para explorar todos los diseños.
             </h2>
           </div>
           <div>

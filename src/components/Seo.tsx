@@ -43,11 +43,11 @@ export function Seo({ page = 'home' }: { page?: SeoPage }) {
   const canonicalUrl = siteUrl ? `${siteUrl}${canonicalPath === '/' ? '/' : canonicalPath}` : canonicalPath
   const title =
     page === 'catalog'
-      ? 'Catálogo Creaciones DM | Mockups y diseños personalizados'
+      ? 'Catálogo Creaciones DM | Diseños personalizados'
       : siteConfig.seo.title
   const description =
     page === 'catalog'
-      ? 'Explora el catálogo virtual de Creaciones DM con mockups y diseños personalizados por tipo de producto y ocasión. Cotiza por WhatsApp.'
+      ? 'Explora el catálogo visual de Creaciones DM con diseños personalizados por tipo de producto y ocasión. Cotiza por WhatsApp.'
       : siteConfig.seo.description
   const imageUrl = getAbsoluteUrl(siteConfig.seo.image)
   const sameAs = Object.values(siteConfig.social).filter(Boolean)

@@ -5,8 +5,8 @@ Resumen operativo para organizar los productos y diseños disponibles.
 ## Resumen rápido
 
 - Productos y servicios ofertables: 8
-- Diseños/mockups optimizados para tienda virtual: 1352
-- Tipos de producto con mockups actuales: 2
+- Diseños optimizados para tienda virtual: 1352
+- Tipos de producto con diseños actuales: 2
 - Temáticas detectadas: 6
 - Colecciones base detectadas: 8
 
@@ -16,7 +16,7 @@ Resumen operativo para organizar los productos y diseños disponibles.
 - `catalogo-por-tematica.md`: clasificación por ocasión y temática.
 - `catalogo-productos.csv`: versión tabular de productos ofertables.
 - `catalogo-tematicas.csv`: versión tabular por temática.
-- `catalogo-tienda-virtual.csv`: todos los diseños/mockups de la tienda virtual.
+- `catalogo-tienda-virtual.csv`: todos los diseños de la tienda virtual.
 - `catalogo-resumen.json`: resumen estructurado para automatizaciones o futuras integraciones.
 
 ## Recomendación comercial

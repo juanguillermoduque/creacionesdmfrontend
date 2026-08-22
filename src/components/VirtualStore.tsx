@@ -126,7 +126,7 @@ export function VirtualStore() {
               Tienda virtual
             </p>
             <h1 id="catalog-title" className="mt-3 font-display text-[38px] font-black leading-[1.05] text-ink md:text-[58px]">
-              Explora los mockups y diseños disponibles.
+              Explora todos los diseños disponibles.
             </h1>
           </div>
           <p className="max-w-2xl text-base leading-7 text-ink/74">
@@ -208,7 +208,7 @@ export function VirtualStore() {
             <Filter aria-hidden="true" size={17} />
             Mostrando {visibleItems.length} de {filteredItems.length} diseños
           </span>
-          <span>{catalogData.items.length} piezas optimizadas desde packs, mockups e imágenes fuente.</span>
+          <span>{catalogData.items.length} piezas optimizadas desde packs, diseños e imágenes fuente.</span>
         </div>
 
         {loading ? (

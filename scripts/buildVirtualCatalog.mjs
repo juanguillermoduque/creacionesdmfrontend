@@ -54,7 +54,7 @@ function titleize(value) {
   const clean = value
     .replace(/\.[a-z0-9]+$/i, '')
     .replace(/[_-]+/g, ' ')
-    .replace(/\b(copia|copy|mockup|mostrario|taza|tazas|png|jpg|psd|disenos?|pack)\b/gi, ' ')
+    .replace(/\b(copia|copy|mockups?|mostrario|taza|tazas|png|jpg|psd|disenos?|pack)\b/gi, ' ')
     .replace(/\b(navidad|collage|amor)\b/gi, (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase())
     .replace(/\s+/g, ' ')
     .trim()
@@ -115,7 +115,7 @@ function classify(pathLike) {
   const sourceType = extname(pathLike).toLowerCase() === '.psd'
     ? 'Editable PSD'
     : normalized.includes('mockup') || normalized.includes('mostrario')
-      ? 'Mockup'
+      ? 'Vista previa'
       : 'Diseño'
   const title = titleize(fileName)
 
