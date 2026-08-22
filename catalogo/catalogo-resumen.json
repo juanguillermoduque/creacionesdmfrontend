@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-22T02:23:51.022Z",
+  "generatedAt": "2026-08-22T02:41:26.190Z",
   "totals": {
     "productOfferings": 8,
-    "storeItems": 1153,
+    "storeItems": 1352,
     "productTypes": 2,
     "occasions": 6,
     "collections": 8
@@ -110,26 +110,26 @@
   ],
   "storeCatalog": {
     "byProductType": {
-      "Mugs y tazas": 1066,
+      "Mugs y tazas": 1265,
       "Diseños para sublimación": 87
     },
     "byOccasion": {
-      "Profesiones": 809,
-      "Navidad": 186,
+      "Profesiones": 993,
+      "Navidad": 201,
       "Amor y pareja": 45,
       "Ilustrados": 41,
       "Diseños variados": 38,
       "Familia": 34
     },
     "byCollection": {
-      "Tazas profesiones": 444,
-      "Packs profesiones especiales": 437,
+      "Tazas profesiones": 621,
+      "Packs profesiones especiales": 444,
       "Pack tazones Navidad #4": 76,
       "Tres tazas Navidad": 47,
       "Pack amor collage": 45,
+      "Pack tazones Navidad #5": 45,
       "Tazas ilustradas": 41,
-      "Colección abuelos": 33,
-      "Pack tazones Navidad #5": 30
+      "Colección abuelos": 33
     }
   }
 }

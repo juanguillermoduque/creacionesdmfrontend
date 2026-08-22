@@ -5,7 +5,7 @@ Resumen operativo para organizar los productos y diseños disponibles.
 ## Resumen rápido
 
 - Productos y servicios ofertables: 8
-- Diseños/mockups optimizados para tienda virtual: 1153
+- Diseños/mockups optimizados para tienda virtual: 1352
 - Tipos de producto con mockups actuales: 2
 - Temáticas detectadas: 6
 - Colecciones base detectadas: 8

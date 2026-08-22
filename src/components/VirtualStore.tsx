@@ -22,6 +22,7 @@ type StoreCatalogData = {
   items: StoreCatalogItem[]
   productTypes: string[]
   occasions: string[]
+  collections: string[]
 }
 
 function normalize(value: string) {
@@ -40,11 +41,13 @@ export function VirtualStore() {
     items: [],
     productTypes: [],
     occasions: [],
+    collections: [],
   })
   const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState('')
   const [productType, setProductType] = useState('Todos')
   const [occasion, setOccasion] = useState('Todas')
+  const [collection, setCollection] = useState('Todas')
   const [visibleCount, setVisibleCount] = useState(initialVisibleCount)
 
   useEffect(() => {
@@ -73,21 +76,23 @@ export function VirtualStore() {
     return catalogData.items.filter((item) => {
       const matchesProductType = productType === 'Todos' || item.productType === productType
       const matchesOccasion = occasion === 'Todas' || item.occasion === occasion
+      const matchesCollection = collection === 'Todas' || item.collection === collection
       const matchesSearch =
         !search ||
         normalize(`${item.title} ${item.productType} ${item.occasion} ${item.collection}`).includes(search)
 
-      return matchesProductType && matchesOccasion && matchesSearch
+      return matchesProductType && matchesOccasion && matchesCollection && matchesSearch
     })
-  }, [catalogData.items, occasion, productType, query])
+  }, [catalogData.items, collection, occasion, productType, query])
 
   const visibleItems = filteredItems.slice(0, visibleCount)
-  const hasFilters = query || productType !== 'Todos' || occasion !== 'Todas'
+  const hasFilters = query || productType !== 'Todos' || occasion !== 'Todas' || collection !== 'Todas'
 
   function resetFilters() {
     setQuery('')
     setProductType('Todos')
     setOccasion('Todas')
+    setCollection('Todas')
     setVisibleCount(initialVisibleCount)
   }
 
@@ -98,6 +103,11 @@ export function VirtualStore() {
 
   function updateOccasion(value: string) {
     setOccasion(value)
+    setVisibleCount(initialVisibleCount)
+  }
+
+  function updateCollection(value: string) {
+    setCollection(value)
     setVisibleCount(initialVisibleCount)
   }
 
@@ -125,7 +135,7 @@ export function VirtualStore() {
           </p>
         </div>
 
-        <div className="mt-8 grid gap-3 rounded-[8px] border border-black/10 bg-ivory p-4 md:grid-cols-[1fr_0.48fr_0.48fr_auto] md:items-end">
+        <div className="mt-8 grid gap-3 rounded-[8px] border border-black/10 bg-ivory p-4 md:grid-cols-2 lg:grid-cols-[1fr_0.42fr_0.42fr_0.42fr_auto] lg:items-end">
           <label className="block">
             <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.08em] text-ink/60">Buscar</span>
             <span className="relative block">
@@ -163,6 +173,20 @@ export function VirtualStore() {
             >
               <option>Todas</option>
               {catalogData.occasions.map((item) => (
+                <option key={item}>{item}</option>
+              ))}
+            </select>
+          </label>
+
+          <label className="block">
+            <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.08em] text-ink/60">Colección</span>
+            <select
+              value={collection}
+              onChange={(event) => updateCollection(event.target.value)}
+              className="h-11 w-full rounded-[8px] border border-black/10 bg-white px-3 text-sm font-extrabold text-ink outline-none transition focus:border-mint"
+            >
+              <option>Todas</option>
+              {catalogData.collections.map((item) => (
                 <option key={item}>{item}</option>
               ))}
             </select>

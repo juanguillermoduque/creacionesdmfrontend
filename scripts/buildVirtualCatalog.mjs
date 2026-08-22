@@ -9,7 +9,7 @@ const extractDir = join(workDir, 'extracted')
 const assetDir = resolve(rootDir, 'public/assets/store')
 const dataFile = resolve(rootDir, 'public/data/store-catalog.json')
 
-const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp', '.tif', '.tiff'])
+const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp', '.tif', '.tiff', '.psd'])
 const archiveExtensions = new Set(['.zip', '.rar', '.7z'])
 const ignoredArchivePatterns = [/fuentes/i]
 const ignoredEntryPatterns = [/thumbs\.db$/i, /__MACOSX/i, /\/fonts?\//i, /\/fuentes?\//i]
@@ -112,7 +112,11 @@ function classify(pathLike) {
 
   const productType = normalized.includes('taza') || normalized.includes('mug') ? 'Mugs y tazas' : 'Diseños para sublimación'
   const collection = collectionName(pathLike)
-  const sourceType = normalized.includes('mockup') || normalized.includes('mostrario') ? 'Mockup' : 'Diseño'
+  const sourceType = extname(pathLike).toLowerCase() === '.psd'
+    ? 'Editable PSD'
+    : normalized.includes('mockup') || normalized.includes('mostrario')
+      ? 'Mockup'
+      : 'Diseño'
   const title = titleize(fileName)
 
   return { collection, occasion, productType, sourceType, title }
@@ -211,9 +215,9 @@ while (queue.length) {
 
     if (!imageExtensions.has(ext)) continue
     const stats = statSync(file)
-    if (stats.size < 1024) continue
+    if (stats.size < 1) continue
     const dimensions = imageDimensions(file)
-    if (dimensions.width < 280 || dimensions.height < 280) continue
+    if (!dimensions.width || !dimensions.height) continue
 
     extractedImages.push(file)
   }
